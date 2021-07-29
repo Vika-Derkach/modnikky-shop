@@ -36,3 +36,10 @@ exports.registerValidators = [
     .withMessage("the last name must be bigger than 3 letters")
     .trim(),
 ];
+exports.loginValidators = [
+  body("email").isEmail().withMessage("Type correct email").normalizeEmail(),
+  body("password", "Password must be minimum 4 symbols")
+    .isLength({ min: 4, max: 56 })
+    .isAlphanumeric()
+    .trim(),
+];
