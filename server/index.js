@@ -1,9 +1,16 @@
 const express = require("express");
 const config = require("config");
 const mongoose = require("mongoose");
+
+const authRoutes = require("./routes/auth.routes");
 const app = express();
 
-app.use("/api/auth");
+app.use("/api/auth", authRoutes);
+
+app.use((error, req, res, next) => {
+  console.error(error);
+  return res.render("error");
+});
 
 const PORT = config.get("port") || 5000;
 
