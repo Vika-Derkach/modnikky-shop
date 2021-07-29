@@ -1,0 +1,21 @@
+.catalog-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+.catalog-picture {
+  width: 32%;
+}
+.catalog-picture img {
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 320px) {
+  .catalog-container {
+    flex-direction: column;
+  }
+  .catalog-picture {
+    width: 100%;
+  }
+}

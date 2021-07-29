@@ -1,0 +1,48 @@
+.insta-shop {
+  padding-top: 5rem;
+}
+.insta-shop__title {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.04em;
+  color: #000f08;
+  margin-bottom: 2.5rem;
+  margin-left: 5%;
+}
+.insta-shop__title a {
+  transition: 0.5s ease-in-out;
+  text-decoration: underline;
+  color: #000f08;
+}
+.insta-shop__title a:hover {
+  color: #8c8c8c;
+}
+.insta-shop-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+.insta-shop_pic {
+  width: 49%;
+}
+.insta-shop_pic img {
+  width: 100%;
+}
+.insta-shop_pic-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.insta-shop_pic .insta-shop_pic__small {
+  width: 49%;
+}
+@media (max-width: 768px) {
+  .insta-shop-container {
+    flex-direction: column;
+  }
+  .insta-shop_pic {
+    width: 100%;
+  }
+}

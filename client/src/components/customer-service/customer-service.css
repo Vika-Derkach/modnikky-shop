@@ -1,0 +1,43 @@
+.customer-service {
+  width: 70%;
+}
+.customer-service__title {
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 3rem;
+  color: #000000;
+  margin-bottom: 7.2rem;
+}
+.customer-service__item {
+  margin-bottom: 5rem;
+}
+.customer-service__item .customer-service__item__text {
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1rem;
+  color: #8c8c8c;
+  margin-bottom: 1.6rem;
+}
+.customer-service__item p {
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #000f08;
+}
+.customer-service .customer-service__item .customer-service__item__text {
+  margin-bottom: 1.6rem;
+}
+.customer-service__item .payment-text {
+  width: 70%;
+  margin-bottom: 1.6rem;
+}
+@media (max-width: 768px) {
+  .bag-item .bag-item_picture {
+    width: 40%;
+  }
+}
+@media (max-width: 320px) {
+  .customer-service {
+    width: 90%;
+  }
+}
