@@ -72,7 +72,7 @@ const onFilterFabric = (fabricName) => {
     fabricName,
   };
 };
-const fetchClothes = (modnikkyService, dispatch) => () => {
+const fetchClothes = (modnikkyService, dispatch) => async () => {
   dispatch(clothesRequested());
   modnikkyService
     .getClothes()
