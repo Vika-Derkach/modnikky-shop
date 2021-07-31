@@ -12,3 +12,12 @@ exports.getClothes = async (req, res, next) => {
     next(error);
   }
 };
+exports.getClothesById = async (req, res, next) => {
+  try {
+    const clothes = await Clothes.findById(req.params.id);
+
+    res.json(clothes);
+  } catch (error) {
+    next(error);
+  }
+};
