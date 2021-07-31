@@ -1,10 +1,22 @@
 const express = require("express");
 const config = require("config");
+const cors = require("cors");
 const mongoose = require("mongoose");
 
 const authRoutes = require("./routes/auth.routes");
 const clothesRoutes = require("./routes/clothes.routes");
 const app = express();
+
+app.use(
+  cors({
+    origin: "*",
+  })
+);
+app.use((req, res, next) => {
+  req.header("Access-Control-Allow-Origin", "*");
+  req.header("Access-Control-Allow-Methods", "*");
+  next();
+});
 
 app.use("/api/auth", authRoutes);
 app.use("/api/clothes", clothesRoutes);
