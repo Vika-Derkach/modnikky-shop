@@ -6,7 +6,11 @@ const GoodsItem = ({ cloth, onItemSelected }) => {
   const { frontPicture } = cloth;
 
   return (
-    <Link to="/product/:id?" className="good-item" onClick={onItemSelected}>
+    <Link
+      to={`/product/${cloth.id}`}
+      className="good-item"
+      onClick={onItemSelected}
+    >
       <img src={frontPicture} alt="" />
     </Link>
   );

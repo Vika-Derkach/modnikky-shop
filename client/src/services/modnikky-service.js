@@ -12,8 +12,8 @@ export default class ModnikkyService {
 
   getClothes = async () => {
     const res = await this.getResourse(`/clothes/`);
-    console.log(res);
-    return res;
+
+    return res.map(this._transformCloses);
 
     //   return new Promise((resolve, reject) => {
     //     setTimeout(() => {
@@ -27,6 +27,7 @@ export default class ModnikkyService {
   };
   getClothesById = async (id) => {
     const clothesById = await this.getResourse(`/clothes/${id}`);
+    console.log(clothesById);
     return clothesById;
   };
   // _transformClothes = (clothes) => {
@@ -38,4 +39,10 @@ export default class ModnikkyService {
   //     eyeColor: person.eye_color,
   //   };
   // };
+  _transformCloses = (clothes) => {
+    return {
+      ...clothes,
+      id: clothes._id,
+    };
+  };
 }
