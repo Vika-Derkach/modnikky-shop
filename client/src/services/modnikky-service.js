@@ -25,7 +25,10 @@ export default class ModnikkyService {
     //     }, 700);
     //   });
   };
-
+  getClothesById = async (id) => {
+    const clothesById = await this.getResourse(`/clothes/${id}`);
+    return clothesById;
+  };
   // _transformClothes = (clothes) => {
   //   return {
   //     id: this._extractId(clothes),
