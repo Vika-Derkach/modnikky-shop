@@ -3,9 +3,11 @@ const config = require("config");
 const mongoose = require("mongoose");
 
 const authRoutes = require("./routes/auth.routes");
+const clothesRoutes = require("./routes/clothes.routes");
 const app = express();
 
 app.use("/api/auth", authRoutes);
+app.use("/api/clothes", clothesRoutes);
 
 app.use((error, req, res, next) => {
   console.error(error);
