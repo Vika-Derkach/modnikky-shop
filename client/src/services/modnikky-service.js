@@ -1,14 +1,7 @@
-export default class ModnikkyService {
-  _apiBase = "http://localhost:5000/api";
-  // _imageBase = "https://starwars-visualguide.com/assets/img";
-  getResourse = async (url) => {
-    const res = await fetch(`${this._apiBase}${url}`);
-    if (!res.ok) {
-      throw new Error(`Could  not fetch ${url}, received ${res.status}`);
-    }
+import { Service } from "./service";
 
-    return await res.json();
-  };
+export default class ModnikkyService extends Service {
+  // _imageBase = "https://starwars-visualguide.com/assets/img";
 
   getClothes = async () => {
     const res = await this.getResourse(`/clothes/`);
@@ -39,6 +32,7 @@ export default class ModnikkyService {
   //     eyeColor: person.eye_color,
   //   };
   // };
+
   _transformCloses = (clothes) => {
     return {
       ...clothes,
