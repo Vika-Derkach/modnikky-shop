@@ -79,6 +79,7 @@ const fetchClothes = (modnikkyService, dispatch) => async () => {
     .then((data) => dispatch(clothesLoaded(data)))
     .catch((err) => dispatch(clothesError(err)));
 };
+
 export {
   fetchClothes,
   onItemSelected,
