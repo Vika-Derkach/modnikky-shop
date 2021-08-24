@@ -1,6 +1,17 @@
 import React from "react";
+import { bagProductItemTypes } from "../../types/reducerTypes";
 import "./bag-item.css";
-const BagItem = ({ product, onDelete, onDecrease, onIncrease }) => {
+interface BagsItemProps {
+  product: bagProductItemTypes,
+
+  onDelete: () => void,
+  onDecrease: () => void,
+   onIncrease: () => void,
+
+
+  
+}
+const BagItem: React.FC<BagsItemProps>  = ({ product, onDelete, onDecrease, onIncrease }) => {
   const { frontPicture, title, price, color, count, size } = product;
   return (
     <div className="bag-item">

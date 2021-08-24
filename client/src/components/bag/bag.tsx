@@ -9,8 +9,32 @@ import {
 import BagItem from "../bag-item";
 import ContainedButton from "../contained-button";
 import { withModnikkyService } from "../hoc";
+import { bagProductItemTypes} from '../../types/reducerTypes'
 import "./bag.css";
-const Bag = ({
+interface BagsProps {
+  products: bagProductItemTypes[],
+  totalPrice: number,
+  onDelete: (id: number) => void
+  
+  totalItems: number,
+  onDecrease: (id: number) => void,
+  onIncrease: (id: number) => void,
+
+
+
+  
+}
+// let classSignIn;
+// let text;
+// const bagAction = () => {
+//   classSignIn = " pay";
+//   text = "You have paid";
+//   return {
+//     classSignIn,
+//     text,
+//   };
+// }
+const Bag: React.FC<BagsProps> = ({
   products,
   totalPrice,
   onDelete,
@@ -39,17 +63,26 @@ const Bag = ({
         {" "}
         <div className="bag-total">Total USD ${totalPrice}</div>
         <Link to="/payment">
-          <ContainedButton button_text={button_text_checkout} />
+          <ContainedButton button_text={button_text_checkout} onAction />
         </Link>
       </div>
     </section>
   );
 };
-const mapStateToProps = ({ bagItems, orderTotal, orderTotalPrice }) => {
+interface BagsPropsTypes {
+  bagItems: bagProductItemTypes[],
+  orderTotal: number,
+ 
+  
+  orderTotalPrice: number,
+
+  
+}
+const mapStateToProps = (props: BagsPropsTypes) => {
   return {
-    products: bagItems,
-    totalItems: orderTotal,
-    totalPrice: orderTotalPrice,
+    products: props.bagItems,
+    totalItems: props.orderTotal,
+    totalPrice: props.orderTotalPrice,
   };
 };
 const mapDispatchToProps = {
