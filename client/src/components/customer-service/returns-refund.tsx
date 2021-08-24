@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ReturnsRefund() {
+ const ReturnsRefund: React.FC = () => {
   const classes = useStyles();
 
   return (
@@ -123,3 +123,4 @@ export default function ReturnsRefund() {
     </div>
   );
 }
+export default ReturnsRefund

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function OrderIssue() {
+ const OrderIssue: React.FC = () => {
   const classes = useStyles();
 
   return (
@@ -112,3 +112,4 @@ export default function OrderIssue() {
     </div>
   );
 }
+export default OrderIssue

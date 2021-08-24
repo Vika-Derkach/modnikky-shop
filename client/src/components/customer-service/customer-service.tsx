@@ -5,7 +5,7 @@ import Delievery from "./delievery";
 import OrderIssue from "./order-issue";
 import Payment from "./payment";
 import ReturnsRefund from "./returns-refund";
-const CustomerService = () => {
+const CustomerService: React.FC = () => {
   return (
     <div className="customer-service">
       <h2 className="customer-service__title">Customer Service</h2>

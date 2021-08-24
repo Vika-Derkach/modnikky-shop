@@ -24,8 +24,13 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: theme.typography.fontWeightRegular,
   },
 }));
+interface FooterMediaProps {
+  scrollToTop : () => void
+ 
+ 
 
-export default function FooterMedia({ scrollToTop }) {
+}
+const FooterMedia: React.FC<FooterMediaProps> = ({ scrollToTop }) => {
   const classes = useStyles();
 
   return (
@@ -251,3 +256,4 @@ export default function FooterMedia({ scrollToTop }) {
     </div>
   );
 }
+export default  FooterMedia

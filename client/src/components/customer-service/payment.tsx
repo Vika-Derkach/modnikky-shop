@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Payment() {
+ const Payment: React.FC = () => {
   const classes = useStyles();
 
   return (
@@ -136,3 +136,4 @@ export default function Payment() {
     </div>
   );
 }
+export default Payment

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Delievery() {
+ const Delievery: React.FC = () =>  {
   const classes = useStyles();
 
   return (
@@ -63,3 +63,4 @@ export default function Delievery() {
     </div>
   );
 }
+export default Delievery

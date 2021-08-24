@@ -1,12 +1,26 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { Dispatch } from "redux";
 import { fetchClothes, onItemSelected, searchClothes } from "../../actions";
+import ModnikkyService from "../../services/modnikky-service";
+import { clothesAction } from "../../types/actionsTypes";
 import ErrorIndicator from "../error-indicator";
 import GoodsItem from "../goods-item";
 import { withModnikkyService } from "../hoc";
 import Spinner from "../spinner";
 import "./goods.css";
-const Goods = ({ clothes, loading, error, onItemSelected, fetchClothes }) => {
+
+interface BagsProps {
+  clothes: any[];
+  loading: boolean;
+  error: null | string;
+  selectedItem: any;
+ 
+    onItemSelected :(id: number) => void
+    fetchClothes: () => void
+
+}
+const Goods: React.FC<BagsProps> = ({ clothes, loading, error, onItemSelected, fetchClothes }) => {
   useEffect(() => {
     fetchClothes();
   }, []);
@@ -34,15 +48,25 @@ const Goods = ({ clothes, loading, error, onItemSelected, fetchClothes }) => {
     </div>
   );
 };
-const mapStateToProps = ({ clothes, loading, error }) => {
-  return { clothes, loading, error };
+interface mapStateToPropsTypes {
+  clothes: string[];
+  loading: boolean;
+  error: null | string;
+}
+const mapStateToProps = (props: mapStateToPropsTypes) => {
+  return { clothes: props.clothes ,
+     loading: props.loading,
+      error: props.error };
 };
-
-const mapDispatchToProps = (dispatch, ownProps) => {
+interface ownPropsTypes {
+  modnikkyService: ModnikkyService
+}
+const mapDispatchToProps = (dispatch : Dispatch<clothesAction>, ownProps: ownPropsTypes) => {
   const { modnikkyService } = ownProps;
   return {
     fetchClothes: fetchClothes(modnikkyService, dispatch),
-    onItemSelected: (id) => dispatch(onItemSelected(id)),
+    // @ts-ignore: Unreachable code error
+    onItemSelected: (id: number) => dispatch(onItemSelected(id)),
     ///search fillter
     searchClothes: searchClothes,
   };

@@ -20,7 +20,7 @@ const clothesError = (error: string) => {
     payload: error,
   };
 };
-const onItemSelected = (clothId: number) => {
+const onItemSelected = (clothId: number): { type: string; payload: number } => {
   return {
     type: clothesActionTypes.ON_ITEM_SELECTED,
     payload: clothId,
