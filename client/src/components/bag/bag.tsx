@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import {
   productAddedToBag,
   productAllRemovedFromBag,
-  productRemovedFromBag,
+  productRemovedFromBag
 } from "../../actions";
+import { bagProductItemTypes } from '../../types/reducerTypes';
 import BagItem from "../bag-item";
 import ContainedButton from "../contained-button";
 import { withModnikkyService } from "../hoc";
-import { bagProductItemTypes} from '../../types/reducerTypes'
 import "./bag.css";
 interface BagsProps {
   products: bagProductItemTypes[],
@@ -20,9 +20,6 @@ interface BagsProps {
   onDecrease: (id: number) => void,
   onIncrease: (id: number) => void,
 
-
-
-  
 }
 // let classSignIn;
 // let text;

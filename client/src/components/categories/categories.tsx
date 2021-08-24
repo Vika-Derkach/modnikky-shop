@@ -4,13 +4,29 @@ import {
   onFilterClothes,
   onFilterFabric,
   onFilterPrice,
-  onFilterSize,
+  onFilterSize
 } from "../../actions";
 import CategoriesClothesFilter from "../categories-clothes-filter";
 import SearchInput from "../search-input";
 import TreeViewCategories from "../tree-view-categories";
 import "./categories.css";
-const Categories = ({
+interface CategoriesPropsTypes {
+  // products: bagProductItemTypes[],
+  // totalPrice: number,
+  // onDelete: (id: number) => void
+  
+  // totalItems: number,
+  // onDecrease: (id: number) => void,
+  // onIncrease: (id: number) => void,
+  filterClothes: string,
+  filterSize: string,
+  onFilterClothes: (name: string) => void,
+  onFilterSize: (name: string)=> void,
+ 
+  onFilterPrice: (name: string) => void,
+  onFilterFabric: (name: string) => void,
+}
+const Categories: React.FC<CategoriesPropsTypes> = ({
   filterClothes,
   onFilterClothes,
   onFilterSize,
@@ -43,18 +59,21 @@ const Categories = ({
     </div>
   );
 };
-
-const mapStateToProps = ({ filterClothes, filterSize }) => {
+interface mapStateToPropsTypes {
+  filterClothes: string,
+   filterSize: string
+}
+const mapStateToProps = (props: mapStateToPropsTypes) => {
   return {
-    filterClothes: filterClothes,
-    filterSize: filterSize,
+    filterClothes: props.filterClothes,
+    filterSize: props.filterSize,
   };
 };
 
 const mapDispatchToProps = {
-  onFilterClothes: (name) => onFilterClothes(name),
-  onFilterSize: (name) => onFilterSize(name),
-  onFilterPrice: (name) => onFilterPrice(name),
-  onFilterFabric: (name) => onFilterFabric(name),
+  onFilterClothes: (name: string) => onFilterClothes(name),
+  onFilterSize: (name: string) => onFilterSize(name),
+  onFilterPrice: (name: string) => onFilterPrice(name),
+  onFilterFabric: (name: string) => onFilterFabric(name),
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Categories);
