@@ -1,7 +1,7 @@
 import React from "react";
 import { Link as ScrollLink } from "react-scroll";
 import "./customer-categories.css";
-const CustomerCategories = () => {
+const CustomerCategories: React.FC = () => {
   return (
     <section className="customer-categories">
       <div className="customer-categories__title">CATEGORIES</div>

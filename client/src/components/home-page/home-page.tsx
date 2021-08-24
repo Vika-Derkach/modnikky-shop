@@ -9,7 +9,7 @@ import sweater2 from "./img/sweater2.jpg";
 import sweater3 from "./img/sweater3.jpg";
 import sweater4 from "./img/sweater4.jpg";
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   const screen_pic1 = " screen_pic1";
   const title_1 = "NEW COLLECTION";
   const descr1 =

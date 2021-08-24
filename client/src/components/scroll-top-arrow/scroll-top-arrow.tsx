@@ -2,7 +2,7 @@ import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import React, { useEffect, useState } from "react";
 import "./scroll-top-arrow.css";
 
-const ScrollTopArrow = () => {
+const ScrollTopArrow: React.FC = () => {
   const [showScroll, setShowScroll] = useState(false);
 
   useEffect(() => {

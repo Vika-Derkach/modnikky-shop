@@ -1,7 +1,7 @@
 import React from "react";
 import icon from "./bam.jpg";
 import "./error-indicator.css";
-const ErrorIndicator = () => {
+const ErrorIndicator: React.FC = () => {
   return (
     <div className="error-indicator">
       <div className="bam">

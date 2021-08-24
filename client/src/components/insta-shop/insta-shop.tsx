@@ -6,7 +6,7 @@ import arr_pic4 from "./img/jacket.jpg";
 import arr_pic1 from "./img/jeans.jpg";
 import arr_pic3 from "./img/jeans2.jpg";
 import "./insta-shop.css";
-const InstaShop = () => {
+const InstaShop: React.FC = () => {
   return (
     <Element className="insta-shop" name="insta-shop">
       <div className="insta-shop__title">

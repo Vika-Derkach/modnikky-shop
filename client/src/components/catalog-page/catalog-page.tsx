@@ -2,7 +2,7 @@ import React from "react";
 import Categories from "../categories";
 import Goods from "../goods";
 import "./catalog-page.css";
-const CatalogPage = () => {
+const CatalogPage: React.FC = () => {
   return (
     <section className="catalog-page">
       <div className="catalog-page-container">

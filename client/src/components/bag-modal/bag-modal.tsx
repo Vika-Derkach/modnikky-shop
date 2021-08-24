@@ -1,7 +1,7 @@
 import React from "react";
 import ContainedButton from "../contained-button";
 import "./bag-modal.css";
-const BagModal = () => {
+const BagModal: React.FC = () => {
   const button_text = "CHECKOUT";
 
   return (
@@ -13,7 +13,7 @@ const BagModal = () => {
           <div className="bag-modal-popup-text__total">TOTAL: USD $590.00</div>
 
           <button className="bag-modal-popup-text__button">VIEWBAG</button>
-          <ContainedButton button_text={button_text} />
+          <ContainedButton button_text={button_text} onAction />
         </div>
         <div className="bag-modal-popup__picture">
           <img

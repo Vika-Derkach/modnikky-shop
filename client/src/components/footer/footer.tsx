@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import FooterMedia from "../footer-media";
 import "./footer.css";
-const Footer = () => {
+const Footer: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 100,

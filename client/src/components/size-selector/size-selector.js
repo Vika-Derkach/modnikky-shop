@@ -3,7 +3,7 @@ import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import React from "react";
 
-export default function SizeSelector() {
+const SizeSelector = () => {
   const [alignment, setAlignment] = React.useState("left");
 
   const handleChange = (event, newAlignment) => {
@@ -27,4 +27,5 @@ export default function SizeSelector() {
       </Grid>
     </Grid>
   );
-}
+};
+export default SizeSelector;

@@ -5,7 +5,7 @@ import React from "react";
 const options_color = ["Option 1", "Option 2"];
 const options_size = [" 1", " 2"];
 
-export default function Selector() {
+const Selector = () => {
   const [value_color, setValueColor] = React.useState(options_color[0]);
   const [inputValueColor, setInputValueColor] = React.useState("");
 
@@ -55,4 +55,5 @@ export default function Selector() {
       </div>
     </div>
   );
-}
+};
+export default Selector;

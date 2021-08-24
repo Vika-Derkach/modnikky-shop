@@ -2,7 +2,7 @@ import React from "react";
 import CustomerCategories from "../customer-categories";
 import CustomerService from "../customer-service";
 import "./customer-service-page.css";
-const CustomerServicePage = () => {
+const CustomerServicePage: React.FC = () => {
   return (
     <section className="customer-service-page">
       <CustomerCategories />
