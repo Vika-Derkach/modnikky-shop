@@ -1,3 +1,4 @@
+import { clothesAction } from "../types/actionsTypes";
 import {
   applicationStateTypes,
   bagProductItemTypes,
@@ -194,7 +195,7 @@ const scrollToTop = () => {
     behavior: "smooth",
   });
 };
-const reducer = (state = initialState, action: any) => {
+const reducer = (state = initialState, action: clothesAction) => {
   console.log(action.type);
 
   switch (action.type) {
