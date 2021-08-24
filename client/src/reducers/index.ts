@@ -21,7 +21,11 @@ const initialState: applicationStateTypes = {
   lookPicture: "",
   lookPictureSecond: "",
 };
-const updateBagItems = (bagItems: any[], item: any, idx: number) => {
+const updateBagItems = (
+  bagItems: bagProductItemTypes[],
+  item: bagProductItemTypes,
+  idx: number
+) => {
   /// удаляє елемент з масива
   if (item.count === 0) {
     return [...bagItems.slice(0, idx), ...bagItems.slice(idx + 1)];
@@ -96,7 +100,7 @@ const updateOrder = (
 };
 
 //filter
-const filter = (items: any[], filter: string) => {
+const filter = (items: clothasItemTypes[], filter: string) => {
   switch (filter) {
     case "shop-all":
       return items;
@@ -129,7 +133,7 @@ const filter = (items: any[], filter: string) => {
       return items;
   }
 };
-const filterSizes = (items: any[], filter: string) => {
+const filterSizes = (items: clothasItemTypes[], filter: string) => {
   switch (filter) {
     // case "shop-all":
     //   return items;
@@ -147,7 +151,7 @@ const filterSizes = (items: any[], filter: string) => {
   }
 };
 
-const filterPrizes = (items: any[], filter: string) => {
+const filterPrizes = (items: clothasItemTypes[], filter: string) => {
   switch (filter) {
     case "<30$":
       return items.filter((item) => item.price <= 30);
@@ -160,7 +164,7 @@ const filterPrizes = (items: any[], filter: string) => {
       return items;
   }
 };
-const filterFabrics = (items: any[], filter: string) => {
+const filterFabrics = (items: clothasItemTypes[], filter: string) => {
   switch (filter) {
     case "COTTON":
       return items.filter((item) => item.fabric === "COTTON");
