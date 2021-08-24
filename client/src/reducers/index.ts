@@ -1,4 +1,4 @@
-import { clothesAction } from "../types/actionsTypes";
+import { clothesAction, clothesActionTypes } from "../types/actionsTypes";
 import {
   applicationStateTypes,
   bagProductItemTypes,
@@ -26,7 +26,7 @@ const updateBagItems = (
   bagItems: bagProductItemTypes[],
   item: bagProductItemTypes,
   idx: number
-) => {
+): bagProductItemTypes[] => {
   /// удаляє елемент з масива
   if (item.count === 0) {
     return [...bagItems.slice(0, idx), ...bagItems.slice(idx + 1)];
@@ -43,7 +43,7 @@ const updateBagItem = (
   bagProduct: clothasItemTypes,
   bagProductItem: bagProductItemTypes,
   quantity: number
-) => {
+): bagProductItemTypes => {
   if (bagProductItem) {
     return {
       ...bagProductItem,
@@ -67,11 +67,15 @@ const updateOrder = (
   state: applicationStateTypes,
   bagProductId: number,
   quantity: number
-) => {
+): applicationStateTypes => {
   const { clothes, bagItems } = state;
   // const bagProductId = action.payload;
-  const bagProduct = clothes.find((product) => product.id === bagProductId);
-  const bagProductIndex = bagItems.findIndex(({ id }) => id === bagProductId);
+  const bagProduct = clothes.find(
+    (product): boolean => product.id === bagProductId
+  );
+  const bagProductIndex = bagItems.findIndex(
+    ({ id }): boolean => id === bagProductId
+  );
   const bagProductItem = bagItems[bagProductIndex];
 
   const newBagItem = updateBagItem(bagProduct, bagProductItem, quantity);
@@ -85,10 +89,10 @@ const updateOrder = (
 
   let countBag = 0;
   let countPriceBag = 0;
-  updatedItems.forEach((updatedItem) => {
+  updatedItems.forEach((updatedItem): void => {
     countBag = updatedItem.count + countBag;
   });
-  updatedItems.forEach((updatedItem) => {
+  updatedItems.forEach((updatedItem): void => {
     countPriceBag = updatedItem.price + countPriceBag;
   });
   //
@@ -101,105 +105,122 @@ const updateOrder = (
 };
 
 //filter
-const filter = (items: clothasItemTypes[], filter: string) => {
+const filter = (
+  items: clothasItemTypes[],
+  filter: string
+): clothasItemTypes[] => {
   switch (filter) {
     case "shop-all":
       return items;
     case "shorts":
-      return items.filter((item) => item.kind === "shorts");
+      return items.filter((item): boolean => item.kind === "shorts");
     case "jeans":
-      return items.filter((item) => item.kind === "jeans");
+      return items.filter((item): boolean => item.kind === "jeans");
     case "jacket":
-      return items.filter((item) => item.kind === "jacket");
+      return items.filter((item): boolean => item.kind === "jacket");
     case "top":
-      return items.filter((item) => item.kind === "top");
+      return items.filter((item): boolean => item.kind === "top");
     case "tee-and-trank":
-      return items.filter((item) => item.kind === "tee-and-trank");
+      return items.filter((item): boolean => item.kind === "tee-and-trank");
     case "shirt":
-      return items.filter((item) => item.kind === "shirt");
+      return items.filter((item): boolean => item.kind === "shirt");
     case "dress":
-      return items.filter((item) => item.kind === "dress");
+      return items.filter((item): boolean => item.kind === "dress");
     case "knitwear":
-      return items.filter((item) => item.kind === "knitwear");
+      return items.filter((item): boolean => item.kind === "knitwear");
     case "jumpsuit":
-      return items.filter((item) => item.kind === "jumpsuit");
+      return items.filter((item): boolean => item.kind === "jumpsuit");
     case "bottom":
-      return items.filter((item) => item.kind === "bottom");
+      return items.filter((item): boolean => item.kind === "bottom");
     case "hoodie":
-      return items.filter((item) => item.kind === "hoodie");
+      return items.filter((item): boolean => item.kind === "hoodie");
     case "skirt":
-      return items.filter((item) => item.kind === "skirt");
+      return items.filter((item): boolean => item.kind === "skirt");
 
     default:
       return items;
   }
 };
-const filterSizes = (items: clothasItemTypes[], filter: string) => {
+const filterSizes = (
+  items: clothasItemTypes[],
+  filter: string
+): clothasItemTypes[] => {
   switch (filter) {
     // case "shop-all":
     //   return items;
     case "S":
-      return items.filter((item) => item.size === "S");
+      return items.filter((item): boolean => item.size === "S");
     case "M":
-      return items.filter((item) => item.size === "M");
+      return items.filter((item): boolean => item.size === "M");
     case "L":
-      return items.filter((item) => item.size === "L");
+      return items.filter((item): boolean => item.size === "L");
     case "XL":
-      return items.filter((item) => item.size === "XL");
+      return items.filter((item): boolean => item.size === "XL");
 
     default:
       return items;
   }
 };
 
-const filterPrizes = (items: clothasItemTypes[], filter: string) => {
+const filterPrizes = (
+  items: clothasItemTypes[],
+  filter: string
+): clothasItemTypes[] => {
   switch (filter) {
     case "<30$":
-      return items.filter((item) => item.price <= 30);
+      return items.filter((item): boolean => item.price <= 30);
     case "30-300$":
-      return items.filter((item) => item.price > 30 && item.price < 300);
+      return items.filter(
+        (item): boolean => item.price > 30 && item.price < 300
+      );
     case "300+$":
-      return items.filter((item) => item.price >= 300);
+      return items.filter((item): boolean => item.price >= 300);
 
     default:
       return items;
   }
 };
-const filterFabrics = (items: clothasItemTypes[], filter: string) => {
+const filterFabrics = (
+  items: clothasItemTypes[],
+  filter: string
+): clothasItemTypes[] => {
   switch (filter) {
     case "COTTON":
-      return items.filter((item) => item.fabric === "COTTON");
+      return items.filter((item): boolean => item.fabric === "COTTON");
     case "DENIM":
-      return items.filter((item) => item.fabric === "DENIM");
+      return items.filter((item): boolean => item.fabric === "DENIM");
     case "LACE":
-      return items.filter((item) => item.fabric === "LACE");
+      return items.filter((item): boolean => item.fabric === "LACE");
     case "LEATHER":
-      return items.filter((item) => item.fabric === "LEATHER");
+      return items.filter((item): boolean => item.fabric === "LEATHER");
     case "LINEN":
-      return items.filter((item) => item.fabric === "LINEN");
+      return items.filter((item): boolean => item.fabric === "LINEN");
     case "SILK":
-      return items.filter((item) => item.fabric === "SILK");
+      return items.filter((item): boolean => item.fabric === "SILK");
     case "SYNTHETIC":
-      return items.filter((item) => item.fabric === "SYNTHETIC");
+      return items.filter((item): boolean => item.fabric === "SYNTHETIC");
     case "WOOL":
-      return items.filter((item) => item.fabric === "WOOL");
+      return items.filter((item): boolean => item.fabric === "WOOL");
 
     default:
       return items;
   }
 };
 //scroll to top
-const scrollToTop = () => {
+const scrollToTop = (): void => {
   window.scrollTo({
     top: 10,
     behavior: "smooth",
   });
 };
-const reducer = (state = initialState, action: clothesAction) => {
+const reducer = (
+  state = initialState,
+  action: clothesAction
+): applicationStateTypes => {
   console.log(action.type);
 
   switch (action.type) {
-    case "FETCH_CLOTHES_REQUEST":
+    case clothesActionTypes.FETCH_CLOTHES_REQUEST:
       return {
         ...state,
         clothes: [],
@@ -207,7 +228,7 @@ const reducer = (state = initialState, action: clothesAction) => {
         loading: true,
         error: null,
       };
-    case "FETCH_CLOTHES_SUCCESS":
+    case clothesActionTypes.FETCH_CLOTHES_SUCCESS:
       return {
         ...state,
         clothes: action.payload,
@@ -215,17 +236,19 @@ const reducer = (state = initialState, action: clothesAction) => {
         loading: false,
         error: null,
       };
-    case "FETCH_CLOTHES_FAILURE":
+    case clothesActionTypes.FETCH_CLOTHES_FAILURE:
       return {
         ...state,
         clothes: [],
         loading: false,
         error: action.payload,
       };
-    case "ON_ITEM_SELECTED":
+    case clothesActionTypes.ON_ITEM_SELECTED:
       scrollToTop();
       const clothId = action.payload;
-      const cloth = state.clothesFromDb.find((cloth) => cloth.id === clothId);
+      const cloth = state.clothesFromDb.find(
+        (cloth): boolean => cloth.id === clothId
+      );
       const newItem = {
         id: cloth.id,
         title: cloth.title,
@@ -239,12 +262,12 @@ const reducer = (state = initialState, action: clothesAction) => {
         size: cloth.size,
       };
       const newLookPicture = state.clothesFromDb.find(
-        (cloth) =>
+        (cloth): boolean =>
           // cloth.frontPicture !== newItem.frontPicture &&
           cloth.kind !== newItem.kind
       );
       const newLookPictureSecond = state.clothesFromDb.find(
-        (cloth) =>
+        (cloth): boolean =>
           cloth.kind !== newItem.kind && cloth.kind !== newLookPicture.kind
       );
 
@@ -254,30 +277,33 @@ const reducer = (state = initialState, action: clothesAction) => {
         lookPicture: newLookPicture.frontPicture,
         lookPictureSecond: newLookPictureSecond.frontPicture,
       };
-    case "PRODUCT_ADDED_TO_BAG":
+    case clothesActionTypes.PRODUCT_ADDED_TO_BAG:
       return updateOrder(state, action.payload, 1);
 
-    case "PRODUCT_ALL_REMOVED_FROM_BAG":
+    case clothesActionTypes.PRODUCT_ALL_REMOVED_FROM_BAG:
       const removedItem = state.bagItems.find(
-        ({ id }) => id === action.payload
+        ({ id }): boolean => id === action.payload
       );
       return updateOrder(state, action.payload, -removedItem.count);
 
-    case "PRODUCT_REMOVED_FROM_BAG":
+    case clothesActionTypes.PRODUCT_REMOVED_FROM_BAG:
       return updateOrder(state, action.payload, -1);
 
-    case "SEARCH_CLOTHES":
+    case clothesActionTypes.SEARCH_CLOTHES:
       ///search fillter
       scrollToTop();
       const { value = "" } = action;
 
       const { clothesFromDb } = state;
 
-      const search = (clothes: any[], searchClothesValue: string) => {
+      const search = (
+        clothes: clothasItemTypes[],
+        searchClothesValue: string
+      ): clothasItemTypes[] => {
         if (searchClothesValue.length === 0) {
           return clothes;
         }
-        return clothes.filter((cloth) => {
+        return clothes.filter((cloth): boolean => {
           return (
             cloth.title
               .toLowerCase()
@@ -296,7 +322,7 @@ const reducer = (state = initialState, action: clothesAction) => {
         clothes: visibleClothes,
         searchClothesValue: value,
       };
-    case "ON_FILTER_CLOTHES":
+    case clothesActionTypes.ON_FILTER_CLOTHES:
       scrollToTop();
       const { clothName = "" } = action;
 
@@ -306,7 +332,7 @@ const reducer = (state = initialState, action: clothesAction) => {
         clothes: filteredClothes,
         filterClothes: clothName,
       };
-    case "ON_FILTER_SIZE":
+    case clothesActionTypes.ON_FILTER_SIZE:
       scrollToTop();
       const { sizeName = "" } = action;
 
@@ -322,7 +348,7 @@ const reducer = (state = initialState, action: clothesAction) => {
     default:
       return state;
 
-    case "ON_FILTER_PRICE":
+    case clothesActionTypes.ON_FILTER_PRICE:
       scrollToTop();
       const { priceName = "" } = action;
 
@@ -338,7 +364,7 @@ const reducer = (state = initialState, action: clothesAction) => {
         clothes: filteredPriced,
         filterPrice: priceName,
       };
-    case "ON_FILTER_FABRIC":
+    case clothesActionTypes.ON_FILTER_FABRIC:
       scrollToTop();
       const { fabricName = "" } = action;
 
