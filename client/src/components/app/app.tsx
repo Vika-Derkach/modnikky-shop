@@ -18,7 +18,7 @@ const InstaShop = lazy(() => import("../insta-shop"));
 const ProductPage = lazy(() => import("../product-page"));
 const SingUpModal = lazy(() => import("../sign-up-modal"));
 
-const App = () => {
+const App: React.FC = () => {
   const info_title_about = "Who we are";
   const info_text_about =
     "We believe in a world where you have total freedom to be you, without judgement. To experiment. To express yourself. To be brave and grab life as the extraordinary adventure it is. So we make sure everyone has an equal chance to discover all the amazing things they’re capable of – no matter who they are, where they’re from or what looks they like to boss. We exist to give you the confidence to be whoever you want to be.";
@@ -44,7 +44,7 @@ const App = () => {
     "Thank you for your buying. We will send you confirmation on gmail. If you have a problem or a question, you can find the answer in the customer service or call our call-assistant. The number is +(380)97-442-2337. You can write us on the gmail queenviktoriyphp@gmail.com. We are happy that you have bought in our shop. You can sign in to get some discount.";
   const info_img_payment =
     "https://th.bing.com/th/id/R.cf8a31d6ee3ed75e9489e0cdbf7732f8?rik=bGSZ8HyL2YZ6pw&pid=ImgRaw";
-  let sizePictue;
+  let sizePictue: string;
   if (window.matchMedia("(max-width: 320px)").matches) {
     sizePictue =
       "https://admin.stelly.com.au/img/cms/size%20chart/size-chart.jpg";
