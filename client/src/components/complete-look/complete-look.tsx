@@ -1,6 +1,11 @@
 import React from "react";
 import "./complete-look.css";
-const CompleteLook = ({ lookPicture, lookPictureSecond }) => {
+interface CategoriesPropsTypes {
+
+  lookPicture: string,
+   lookPictureSecond:string
+}
+const CompleteLook: React.FC<CategoriesPropsTypes> = ({ lookPicture, lookPictureSecond }) => {
   return (
     <section>
       <div className="complete-look-container">
