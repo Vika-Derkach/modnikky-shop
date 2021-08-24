@@ -10,7 +10,7 @@ import store from "./store";
 
 const modnikkyService = new ModnikkyService();
 
-ReactDOM.render(
+ReactDOM.render(  
   <Provider store={store}>
     <ErrorBounry>
       <ModnikkyServiceProvider value={modnikkyService}>

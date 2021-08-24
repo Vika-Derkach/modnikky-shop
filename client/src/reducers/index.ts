@@ -1,4 +1,9 @@
-const initialState = {
+import {
+  applicationStateTypes,
+  bagProductItemTypes,
+  clothasItemTypes,
+} from "../types/reducerTypes";
+const initialState: applicationStateTypes = {
   clothesFromDb: [],
   clothes: [],
   loading: true,
@@ -16,7 +21,7 @@ const initialState = {
   lookPicture: "",
   lookPictureSecond: "",
 };
-const updateBagItems = (bagItems, item, idx) => {
+const updateBagItems = (bagItems: any[], item: any, idx: number) => {
   /// удаляє елемент з масива
   if (item.count === 0) {
     return [...bagItems.slice(0, idx), ...bagItems.slice(idx + 1)];
@@ -29,7 +34,11 @@ const updateBagItems = (bagItems, item, idx) => {
   return [...bagItems.slice(0, idx), item, ...bagItems.slice(idx + 1)];
 };
 
-const updateBagItem = (bagProduct, bagProductItem, quantity) => {
+const updateBagItem = (
+  bagProduct: clothasItemTypes,
+  bagProductItem: bagProductItemTypes,
+  quantity: number
+) => {
   if (bagProductItem) {
     return {
       ...bagProductItem,
@@ -49,7 +58,11 @@ const updateBagItem = (bagProduct, bagProductItem, quantity) => {
   }
 };
 
-const updateOrder = (state, bagProductId, quantity) => {
+const updateOrder = (
+  state: applicationStateTypes,
+  bagProductId: number,
+  quantity: number
+) => {
   const { clothes, bagItems } = state;
   // const bagProductId = action.payload;
   const bagProduct = clothes.find((product) => product.id === bagProductId);
@@ -83,7 +96,7 @@ const updateOrder = (state, bagProductId, quantity) => {
 };
 
 //filter
-const filter = (items, filter) => {
+const filter = (items: any[], filter: string) => {
   switch (filter) {
     case "shop-all":
       return items;
@@ -116,7 +129,7 @@ const filter = (items, filter) => {
       return items;
   }
 };
-const filterSizes = (items, filter) => {
+const filterSizes = (items: any[], filter: string) => {
   switch (filter) {
     // case "shop-all":
     //   return items;
@@ -134,7 +147,7 @@ const filterSizes = (items, filter) => {
   }
 };
 
-const filterPrizes = (items, filter) => {
+const filterPrizes = (items: any[], filter: string) => {
   switch (filter) {
     case "<30$":
       return items.filter((item) => item.price <= 30);
@@ -147,7 +160,7 @@ const filterPrizes = (items, filter) => {
       return items;
   }
 };
-const filterFabrics = (items, filter) => {
+const filterFabrics = (items: any[], filter: string) => {
   switch (filter) {
     case "COTTON":
       return items.filter((item) => item.fabric === "COTTON");
@@ -177,7 +190,7 @@ const scrollToTop = () => {
     behavior: "smooth",
   });
 };
-const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action: any) => {
   console.log(action.type);
 
   switch (action.type) {
@@ -255,7 +268,7 @@ const reducer = (state = initialState, action) => {
 
       const { clothesFromDb } = state;
 
-      const search = (clothes, searchClothesValue) => {
+      const search = (clothes: any[], searchClothesValue: string) => {
         if (searchClothesValue.length === 0) {
           return clothes;
         }
