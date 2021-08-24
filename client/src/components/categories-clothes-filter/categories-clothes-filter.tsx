@@ -1,7 +1,11 @@
 import React from "react";
 import "./categories-clothes-filter.css";
+interface CategoriesClothesFilterPropsTypes {
+  filterClothes: string,
+  onFilterClothes: (name: string) => void,
 
-const CategoriesClothesFilter = ({ onFilterClothes, filterClothes }) => {
+}
+const CategoriesClothesFilter: React.FC<CategoriesClothesFilterPropsTypes> = ({ onFilterClothes, filterClothes }) => {
   const buttonsFilter = [
     { name: "shop-all", label: "SHOP ALL" },
     { name: "shorts", label: "SHORTS" },

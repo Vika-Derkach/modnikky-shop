@@ -11,13 +11,7 @@ import SearchInput from "../search-input";
 import TreeViewCategories from "../tree-view-categories";
 import "./categories.css";
 interface CategoriesPropsTypes {
-  // products: bagProductItemTypes[],
-  // totalPrice: number,
-  // onDelete: (id: number) => void
-  
-  // totalItems: number,
-  // onDecrease: (id: number) => void,
-  // onIncrease: (id: number) => void,
+
   filterClothes: string,
   filterSize: string,
   onFilterClothes: (name: string) => void,
