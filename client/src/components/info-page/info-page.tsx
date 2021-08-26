@@ -1,7 +1,12 @@
 import React from "react";
 import "./info-page.css";
+interface InfoPagePropsTypes {
+  info_text: string, 
+  info_title: string,  
+  info_img: string, 
 
-const InfoPage = ({ info_text, info_title, info_img }) => {
+}
+const InfoPage: React.FC<InfoPagePropsTypes> = ({ info_text, info_title, info_img }) => {
   return (
     <section className="info">
       <h2 className="info-title">{info_title}</h2>

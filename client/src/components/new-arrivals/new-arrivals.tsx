@@ -1,7 +1,16 @@
 import React from "react";
 import { Element } from "react-scroll";
 import "./new-arrivals.css";
-const NewArrivals = ({ arr_title, arr_pic1, arr_pic2, arr_pic3, arr_pic4 }) => {
+interface NewArrivalsPropsTypes {
+  arr_title: string,
+  arr_pic1: string,
+  arr_pic2: string,
+  arr_pic3: string,
+     
+  arr_pic4: string,
+
+}
+const NewArrivals: React.FC<NewArrivalsPropsTypes> = ({ arr_title, arr_pic1, arr_pic2, arr_pic3, arr_pic4 }) => {
   return (
     <Element className="arrivals" name="new_arrivals">
       <div className="arrivals__title">{arr_title}</div>

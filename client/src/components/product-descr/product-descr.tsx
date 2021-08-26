@@ -3,7 +3,7 @@ import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import TreeItem from "@material-ui/lab/TreeItem";
 import TreeView from "@material-ui/lab/TreeView";
-import React from "react";
+import React, { ChangeEvent } from "react";
 import "./product-descr.css";
 const useStyles = makeStyles({
   root: {
@@ -16,17 +16,21 @@ const useStyles = makeStyles({
     color: "black",
   },
 });
+interface ProductDescrPropsTypes {
+  fabric: string, 
+  product_descr: string, 
 
-export default function ProductDescr({ fabric, product_descr }) {
+}
+const ProductDescr: React.FC<ProductDescrPropsTypes> = ({ fabric, product_descr }) => {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState([]);
-  const [selected, setSelected] = React.useState([]);
+  const [expanded, setExpanded] = React.useState<string[]>([]);
+  const [selected, setSelected] = React.useState<string>('');
 
-  const handleToggle = (event, nodeIds) => {
+  const handleToggle = (event: ChangeEvent<{}>, nodeIds: string[]) => {
     setExpanded(nodeIds);
   };
 
-  const handleSelect = (event, nodeIds) => {
+  const handleSelect = (event: ChangeEvent<{}>, nodeIds: string) => {
     setSelected(nodeIds);
   };
 
@@ -56,4 +60,5 @@ export default function ProductDescr({ fabric, product_descr }) {
       </TreeItem>
     </TreeView>
   );
-}
+};
+export default ProductDescr;
