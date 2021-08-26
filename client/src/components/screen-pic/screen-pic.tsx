@@ -1,7 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./screen-pic.css";
-const ScreenPic = ({ screen_pic, title, descr, button, buttonLink }) => {
+interface ScreenPicPropsTypes {
+  screen_pic: string, 
+  title: string,
+  descr: string, 
+  button: string, 
+  buttonLink: string, 
+
+}
+const ScreenPic: React.FC<ScreenPicPropsTypes> = ({ screen_pic, title, descr, button, buttonLink }) => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 100,

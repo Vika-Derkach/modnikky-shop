@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ContainedButton from "../contained-button";
 import "./sign-up-modal.css";
 
-const SingUpModal = () => {
+const SingUpModal: React.FC = () => {
   const button_text = "SIGN UP";
   let classSignIn;
   let text;
@@ -15,7 +15,7 @@ const SingUpModal = () => {
       text,
     };
   };
-  const buttonModalLinkTo = "/";
+
   return (
     <section className="overlay">
       <div className="popup">
@@ -83,7 +83,7 @@ const SingUpModal = () => {
             </div>
             <Link to="/" className="popup-form__button">
               <ContainedButton
-                buttonLinkTo={buttonModalLinkTo}
+               
                 onAction={sendedMassage()}
                 button_text={button_text}
               />

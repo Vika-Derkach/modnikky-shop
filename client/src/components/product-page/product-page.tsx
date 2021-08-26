@@ -5,8 +5,12 @@ import { withModnikkyService } from "../hoc";
 import NewArrivals from "../new-arrivals";
 import ProductSection from "../product-section";
 import "./product-page.css";
+interface ProductPagePropsTypes {
+  lookPicture: string,
+   lookPictureSecond: string
 
-const ProductPage = ({ clothes, lookPicture, lookPictureSecond }) => {
+}
+const ProductPage: React.FC<ProductPagePropsTypes> = ({  lookPicture, lookPictureSecond }) => {
   const sweater1 =
     "https://cdn-hoy.gant.com/public/serve/415482/w_300,q_80/20210211101222-202101-432681-662-model-fv-1-432681-662-model-fv.jpg";
 
@@ -34,7 +38,17 @@ const ProductPage = ({ clothes, lookPicture, lookPictureSecond }) => {
     </section>
   );
 };
-const mapStateToProps = ({ clothes, lookPicture, lookPictureSecond }) => {
-  return { clothes, lookPicture, lookPictureSecond };
+interface mapStateToPropsTypes {
+  clothes: string[],
+   lookPicture: string,
+  lookPictureSecond: string
+
+  
+}
+const mapStateToProps = (props: mapStateToPropsTypes) => {
+  return {
+     clothes: props.clothes,
+     lookPicture: props.lookPicture,
+      lookPictureSecond: props.lookPictureSecond };
 };
 export default withModnikkyService()(connect(mapStateToProps)(ProductPage));

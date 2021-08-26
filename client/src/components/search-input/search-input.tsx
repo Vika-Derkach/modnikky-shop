@@ -1,9 +1,15 @@
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import { bindActionCreators, Dispatch } from "redux";
 import { searchClothes } from "../../actions";
+import { clothesAction } from "../../types/actionsTypes";
 import "./search-input.css";
-const SearchInput = ({ searchClothes, searchValue }) => {
+interface ProductPagePropsTypes {
+  searchClothes: (e: string) => void,
+  searchValue: string
+
+}
+const SearchInput: React.FC<ProductPagePropsTypes>  = ({ searchClothes, searchValue }) => {
   return (
     <Fragment>
       <span className="input-loop">
@@ -19,13 +25,16 @@ const SearchInput = ({ searchClothes, searchValue }) => {
     </Fragment>
   );
 };
-const mapStateToProps = ({ searchClothesValue }) => {
+interface mapStateToPropsTypes {
+  searchClothesValue: string
+}
+const mapStateToProps = (props: mapStateToPropsTypes ) => {
   return {
     ///search fillter
-    searchValue: searchClothesValue,
+    searchValue: props.searchClothesValue,
   };
 };
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch: Dispatch<clothesAction>) {
   return bindActionCreators({ searchClothes }, dispatch);
 }
 export default connect(mapStateToProps, mapDispatchToProps)(SearchInput);
