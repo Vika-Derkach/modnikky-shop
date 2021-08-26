@@ -3,8 +3,11 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import SearchInput from "../search-input";
 import styles from "./header.module.css";
-
-const Header = ({ totalItems }) => {
+interface HeaderPropsTypes {
+ 
+  totalItems: number,
+}
+const Header: React.FC<HeaderPropsTypes> = ({ totalItems }) => {
   const [toggleState, setToggleState] = useState(true);
   const scrollToTop = () => {
     window.scrollTo({
@@ -146,9 +149,12 @@ const Header = ({ totalItems }) => {
     </Fragment>
   );
 };
-const mapStateToProps = ({ orderTotal }) => {
+interface mapStateToPropsTypes {
+  orderTotal: number
+}
+const mapStateToProps = (props: mapStateToPropsTypes ) => {
   return {
-    totalItems: orderTotal,
+    totalItems: props.orderTotal,
   };
 };
 
