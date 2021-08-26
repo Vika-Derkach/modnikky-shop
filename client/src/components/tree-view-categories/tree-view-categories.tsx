@@ -3,7 +3,7 @@ import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import TreeItem from "@material-ui/lab/TreeItem";
 import TreeView from "@material-ui/lab/TreeView";
-import React from "react";
+import React, { ChangeEvent } from "react";
 import "./tree-view-categories.css";
 
 const useStyles = makeStyles({
@@ -18,21 +18,28 @@ const useStyles = makeStyles({
     maxWidth: 400,
   },
 });
-export default function TreeViewCategories({
+interface TreeViewCategoriesPropsTypes {
+  onFilterSize: (name: string) => void,
+  onFilterPrice: (name: string) => void,
+  onFilterFabric: (name: string) => void,
+  filterSize: string
+
+}
+const  TreeViewCategories: React.FC<TreeViewCategoriesPropsTypes>  = ({
   onFilterSize,
   filterSize,
   onFilterPrice,
   onFilterFabric,
-}) {
+}) =>  {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState([]);
-  const [selected, setSelected] = React.useState([]);
+  const [expanded, setExpanded] = React.useState<string[]>([]);
+  const [selected, setSelected] = React.useState<string>('');
 
-  const handleToggle = (event, nodeIds) => {
+  const handleToggle = (event: ChangeEvent<{}>, nodeIds: string[]) => {
     setExpanded(nodeIds);
   };
 
-  const handleSelect = (event, nodeIds) => {
+  const handleSelect = (event: ChangeEvent<{}>, nodeIds: string) => {
     setSelected(nodeIds);
   };
   const buttonsFilterSize = [
@@ -122,3 +129,4 @@ export default function TreeViewCategories({
     </TreeView>
   );
 }
+export default  TreeViewCategories
