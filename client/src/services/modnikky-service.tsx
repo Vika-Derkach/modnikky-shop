@@ -1,5 +1,5 @@
+import { clothasItemTypesWithOldId } from '../types/reducerTypes';
 import { Service } from "./service";
-
 export default class ModnikkyService extends Service {
   // _imageBase = "https://starwars-visualguide.com/assets/img";
 
@@ -18,7 +18,7 @@ export default class ModnikkyService extends Service {
     //     }, 700);
     //   });
   };
-  getClothesById = async (id) => {
+  getClothesById = async (id: number) => {
     const clothesById = await this.getResourse(`/clothes/${id}`);
     console.log(clothesById);
     return clothesById;
@@ -32,8 +32,19 @@ export default class ModnikkyService extends Service {
   //     eyeColor: person.eye_color,
   //   };
   // };
+  // interface BagsPropsTypes {
+  //   bagItems: bagProductItemTypes[],
+  //   orderTotal: number,
+   
+    
+  //   orderTotalPrice: number,
+  
+    
+  // }
+  // _transformClosesPropsTypes {
 
-  _transformCloses = (clothes) => {
+  // }
+  _transformCloses  = (clothes:  clothasItemTypesWithOldId) => {
     return {
       ...clothes,
       id: clothes._id,

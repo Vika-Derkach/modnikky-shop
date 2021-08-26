@@ -34,6 +34,9 @@ export interface clothasItemTypes {
   kind: string;
   size: string;
 }
+export interface clothasItemTypesWithOldId extends clothasItemTypes {
+  _id: number;
+}
 export interface bagProductItemTypes {
   id: number;
   title: string;
