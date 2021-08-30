@@ -14,63 +14,63 @@ export enum IClothesAction {
   ON_FILTER_PRICE = "ON_FILTER_PRICE",
   ON_FILTER_FABRIC = "ON_FILTER_FABRIC",
 }
-interface clothesRequestedAction {
+interface ClothesRequestedAction {
   type: IClothesAction.FETCH_CLOTHES_REQUEST;
 }
-interface clothesLoadedAction {
+interface ClothesLoadedAction {
   type: IClothesAction.FETCH_CLOTHES_SUCCESS;
   payload: any[];
 }
-interface clothesErrorAction {
+interface ClothesErrorAction {
   type: IClothesAction.FETCH_CLOTHES_FAILURE;
   payload: string;
 }
-interface onItemSelectedAction {
+interface OnItemSelectedAction {
   type: IClothesAction.ON_ITEM_SELECTED;
   payload: number;
 }
-interface productAddedToBagAction {
+interface ProductAddedToBagAction {
   type: IClothesAction.PRODUCT_ADDED_TO_BAG;
   payload: number;
 }
-interface productRemovedFromBagAction {
+interface ProductRemovedFromBagAction {
   type: IClothesAction.PRODUCT_REMOVED_FROM_BAG;
   payload: number;
 }
-interface productAllRemovedFromBagAction {
+interface ProductAllRemovedFromBagAction {
   type: IClothesAction.PRODUCT_ALL_REMOVED_FROM_BAG;
   payload: number;
 }
-interface searchClothesAction {
+interface SearchClothesAction {
   type: IClothesAction.SEARCH_CLOTHES;
   value: string;
 }
-interface onFilterClothesAction {
+interface OnFilterClothesAction {
   type: IClothesAction.ON_FILTER_CLOTHES;
   clothName: string;
 }
-interface onFilterSizeAction {
+interface OnFilterSizeAction {
   type: IClothesAction.ON_FILTER_SIZE;
   sizeName: string;
 }
-interface onFilterPriceAction {
+interface OnFilterPriceAction {
   type: IClothesAction.ON_FILTER_PRICE;
   priceName: string;
 }
-interface onFilterFabricAction {
+interface OnFilterFabricAction {
   type: IClothesAction.ON_FILTER_FABRIC;
   fabricName: string;
 }
 export type ClothesAction =
-  | clothesRequestedAction
-  | clothesLoadedAction
-  | clothesErrorAction
-  | onItemSelectedAction
-  | productAddedToBagAction
-  | productRemovedFromBagAction
-  | productAllRemovedFromBagAction
-  | searchClothesAction
-  | onFilterClothesAction
-  | onFilterSizeAction
-  | onFilterPriceAction
-  | onFilterFabricAction;
+  | ClothesRequestedAction
+  | ClothesLoadedAction
+  | ClothesErrorAction
+  | OnItemSelectedAction
+  | ProductAddedToBagAction
+  | ProductRemovedFromBagAction
+  | ProductAllRemovedFromBagAction
+  | SearchClothesAction
+  | OnFilterClothesAction
+  | OnFilterSizeAction
+  | OnFilterPriceAction
+  | OnFilterFabricAction;
