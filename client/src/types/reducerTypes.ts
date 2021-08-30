@@ -1,4 +1,4 @@
-export interface applicationStateTypes {
+export interface IApplicationState {
   clothesFromDb: any[];
   clothes: any[];
   loading: boolean;
@@ -21,7 +21,7 @@ export interface applicationStateTypes {
   //   page: number;
   //   limit: number;
 }
-export interface clothasItemTypes {
+export interface IClothesItem {
   id: number;
   title: string;
   price: number;
@@ -34,10 +34,10 @@ export interface clothasItemTypes {
   kind: string;
   size: string;
 }
-export interface clothasItemTypesWithOldId extends clothasItemTypes {
+export interface IClothasItemTypesWithOldId extends IClothesItem {
   _id: number;
 }
-export interface bagProductItemTypes {
+export interface IBagProductItem {
   id: number;
   title: string;
   frontPicture: string;

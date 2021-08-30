@@ -1,8 +1,8 @@
 import React from "react";
 // import ModnikkyService from "../../services/modnikky-service";
-// import { applicationStateTypes } from "../../types/reducerTypes";
+// import { IApplicationState } from "../../types/reducerTypes";
 // interface IContextProps {
-//   state?: applicationStateTypes;
+//   state?: IApplicationState;
 //   dispatch?: ({ type }: { type: string }) => void;
 //   value: ModnikkyService;
 // }

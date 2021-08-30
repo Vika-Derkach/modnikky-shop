@@ -1,4 +1,4 @@
-import { clothasItemTypesWithOldId } from '../types/reducerTypes';
+import { IClothasItemTypesWithOldId } from '../types/reducerTypes';
 import { Service } from "./service";
 export default class ModnikkyService extends Service {
   // _imageBase = "https://starwars-visualguide.com/assets/img";
@@ -33,7 +33,7 @@ export default class ModnikkyService extends Service {
   //   };
   // };
   // interface BagsPropsTypes {
-  //   bagItems: bagProductItemTypes[],
+  //   bagItems: IBagProductItem[],
   //   orderTotal: number,
    
     
@@ -44,7 +44,7 @@ export default class ModnikkyService extends Service {
   // _transformClosesPropsTypes {
 
   // }
-  _transformCloses  = (clothes:  clothasItemTypesWithOldId) => {
+  _transformCloses  = (clothes:  IClothasItemTypesWithOldId) => {
     return {
       ...clothes,
       id: clothes._id,

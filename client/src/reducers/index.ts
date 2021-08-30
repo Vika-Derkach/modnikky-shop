@@ -1,10 +1,10 @@
 import { ClothesAction, IClothesAction } from "../types/actionsTypes";
 import {
-  applicationStateTypes,
-  bagProductItemTypes,
-  clothasItemTypes,
+  IApplicationState,
+  IBagProductItem,
+  IClothesItem,
 } from "../types/reducerTypes";
-const initialState: applicationStateTypes = {
+const initialState: IApplicationState = {
   clothesFromDb: [],
   clothes: [],
   loading: true,
@@ -23,10 +23,10 @@ const initialState: applicationStateTypes = {
   lookPictureSecond: "",
 };
 const updateBagItems = (
-  bagItems: bagProductItemTypes[],
-  item: bagProductItemTypes,
+  bagItems: IBagProductItem[],
+  item: IBagProductItem,
   idx: number
-): bagProductItemTypes[] => {
+): IBagProductItem[] => {
   /// удаляє елемент з масива
   if (item.count === 0) {
     return [...bagItems.slice(0, idx), ...bagItems.slice(idx + 1)];
@@ -40,10 +40,10 @@ const updateBagItems = (
 };
 
 const updateBagItem = (
-  bagProduct: clothasItemTypes,
-  bagProductItem: bagProductItemTypes,
+  bagProduct: IClothesItem,
+  bagProductItem: IBagProductItem,
   quantity: number
-): bagProductItemTypes => {
+): IBagProductItem => {
   if (bagProductItem) {
     return {
       ...bagProductItem,
@@ -64,10 +64,10 @@ const updateBagItem = (
 };
 
 const updateOrder = (
-  state: applicationStateTypes,
+  state: IApplicationState,
   bagProductId: number,
   quantity: number
-): applicationStateTypes => {
+): IApplicationState => {
   const { clothes, bagItems } = state;
   // const bagProductId = action.payload;
   const bagProduct = clothes.find(
@@ -105,10 +105,7 @@ const updateOrder = (
 };
 
 //filter
-const filter = (
-  items: clothasItemTypes[],
-  filter: string
-): clothasItemTypes[] => {
+const filter = (items: IClothesItem[], filter: string): IClothesItem[] => {
   switch (filter) {
     case "shop-all":
       return items;
@@ -141,10 +138,7 @@ const filter = (
       return items;
   }
 };
-const filterSizes = (
-  items: clothasItemTypes[],
-  filter: string
-): clothasItemTypes[] => {
+const filterSizes = (items: IClothesItem[], filter: string): IClothesItem[] => {
   switch (filter) {
     // case "shop-all":
     //   return items;
@@ -163,9 +157,9 @@ const filterSizes = (
 };
 
 const filterPrizes = (
-  items: clothasItemTypes[],
+  items: IClothesItem[],
   filter: string
-): clothasItemTypes[] => {
+): IClothesItem[] => {
   switch (filter) {
     case "<30$":
       return items.filter((item): boolean => item.price <= 30);
@@ -181,9 +175,9 @@ const filterPrizes = (
   }
 };
 const filterFabrics = (
-  items: clothasItemTypes[],
+  items: IClothesItem[],
   filter: string
-): clothasItemTypes[] => {
+): IClothesItem[] => {
   switch (filter) {
     case "COTTON":
       return items.filter((item): boolean => item.fabric === "COTTON");
@@ -216,7 +210,7 @@ const scrollToTop = (): void => {
 const reducer = (
   state = initialState,
   action: ClothesAction
-): applicationStateTypes => {
+): IApplicationState => {
   console.log(action.type);
 
   switch (action.type) {
@@ -297,9 +291,9 @@ const reducer = (
       const { clothesFromDb } = state;
 
       const search = (
-        clothes: clothasItemTypes[],
+        clothes: IClothesItem[],
         searchClothesValue: string
-      ): clothasItemTypes[] => {
+      ): IClothesItem[] => {
         if (searchClothesValue.length === 0) {
           return clothes;
         }

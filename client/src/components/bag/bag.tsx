@@ -6,13 +6,13 @@ import {
   productAllRemovedFromBag,
   productRemovedFromBag
 } from "../../actions";
-import { bagProductItemTypes } from '../../types/reducerTypes';
+import { IBagProductItem } from '../../types/reducerTypes';
 import BagItem from "../bag-item";
 import ContainedButton from "../contained-button";
 import { withModnikkyService } from "../hoc";
 import "./bag.css";
 interface BagsProps {
-  products: bagProductItemTypes[],
+  products: IBagProductItem[],
   totalPrice: number,
   onDelete: (id: number) => void
   
@@ -67,7 +67,7 @@ const Bag: React.FC<BagsProps> = ({
   );
 };
 interface BagsPropsTypes {
-  bagItems: bagProductItemTypes[],
+  bagItems: IBagProductItem[],
   orderTotal: number,
  
   

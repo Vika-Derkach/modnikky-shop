@@ -1,8 +1,8 @@
 import React from "react";
-import { bagProductItemTypes } from "../../types/reducerTypes";
+import { IBagProductItem } from "../../types/reducerTypes";
 import "./bag-item.css";
 interface BagsItemProps {
-  product: bagProductItemTypes,
+  product: IBagProductItem,
 
   onDelete: () => void,
   onDecrease: () => void,

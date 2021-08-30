@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { clothasItemTypes } from "../../types/reducerTypes";
+import { IClothesItem } from "../../types/reducerTypes";
 import "./goods-item.css";
 interface GoodsItemPropsTypes {
-  cloth: clothasItemTypes,
+  cloth: IClothesItem,
   onItemSelected: () => void,
 
 }
