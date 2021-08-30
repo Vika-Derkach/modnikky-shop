@@ -10,8 +10,8 @@ interface ContainedButtonProps {
 }
 const ContainedButton: React.FC<ContainedButtonProps> = ({ button_text, onAction }) => {
   return (
-    <div>
-      <button onClick={onAction} className="button">
+    <div >
+      <button data-testid="contained-button" onClick={onAction} className="button">
         {button_text}
       </button>
     </div>

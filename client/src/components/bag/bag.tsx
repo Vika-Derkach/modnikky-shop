@@ -60,7 +60,7 @@ const Bag: React.FC<BagsProps> = ({
         {" "}
         <div className="bag-total">Total USD ${totalPrice}</div>
         <Link to="/payment">
-          <ContainedButton button_text={button_text_checkout} onAction />
+          <ContainedButton  button_text={button_text_checkout} onAction />
         </Link>
       </div>
     </section>
