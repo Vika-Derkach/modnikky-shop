@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { fetchClothes, onItemSelected, searchClothes } from "../../actions";
 import ModnikkyService from "../../services/modnikky-service";
-import { clothesAction } from "../../types/actionsTypes";
+import { ClothesAction } from "../../types/actionsTypes";
 import ErrorIndicator from "../error-indicator";
 import GoodsItem from "../goods-item";
 import { withModnikkyService } from "../hoc";
@@ -61,7 +61,7 @@ const mapStateToProps = (props: mapStateToPropsTypes) => {
 interface ownPropsTypes {
   modnikkyService: ModnikkyService
 }
-const mapDispatchToProps = (dispatch : Dispatch<clothesAction>, ownProps: ownPropsTypes) => {
+const mapDispatchToProps = (dispatch : Dispatch<ClothesAction>, ownProps: ownPropsTypes) => {
   const { modnikkyService } = ownProps;
   return {
     fetchClothes: fetchClothes(modnikkyService, dispatch),

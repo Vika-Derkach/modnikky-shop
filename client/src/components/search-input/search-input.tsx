@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from "redux";
 import { searchClothes } from "../../actions";
-import { clothesAction } from "../../types/actionsTypes";
+import { ClothesAction } from "../../types/actionsTypes";
 import "./search-input.css";
 interface ProductPagePropsTypes {
   searchClothes: (e: string) => void,
@@ -34,7 +34,7 @@ const mapStateToProps = (props: mapStateToPropsTypes ) => {
     searchValue: props.searchClothesValue,
   };
 };
-function mapDispatchToProps(dispatch: Dispatch<clothesAction>) {
+function mapDispatchToProps(dispatch: Dispatch<ClothesAction>) {
   return bindActionCreators({ searchClothes }, dispatch);
 }
 export default connect(mapStateToProps, mapDispatchToProps)(SearchInput);

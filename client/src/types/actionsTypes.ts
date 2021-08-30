@@ -1,4 +1,4 @@
-export enum clothesActionTypes {
+export enum IClothesAction {
   FETCH_CLOTHES_REQUEST = "FETCH_CLOTHES_REQUEST",
   FETCH_CLOTHES_SUCCESS = "FETCH_CLOTHES_SUCCESS",
   FETCH_CLOTHES_FAILURE = "FETCH_CLOTHES_FAILURE",
@@ -15,53 +15,53 @@ export enum clothesActionTypes {
   ON_FILTER_FABRIC = "ON_FILTER_FABRIC",
 }
 interface clothesRequestedAction {
-  type: clothesActionTypes.FETCH_CLOTHES_REQUEST;
+  type: IClothesAction.FETCH_CLOTHES_REQUEST;
 }
 interface clothesLoadedAction {
-  type: clothesActionTypes.FETCH_CLOTHES_SUCCESS;
+  type: IClothesAction.FETCH_CLOTHES_SUCCESS;
   payload: any[];
 }
 interface clothesErrorAction {
-  type: clothesActionTypes.FETCH_CLOTHES_FAILURE;
+  type: IClothesAction.FETCH_CLOTHES_FAILURE;
   payload: string;
 }
 interface onItemSelectedAction {
-  type: clothesActionTypes.ON_ITEM_SELECTED;
+  type: IClothesAction.ON_ITEM_SELECTED;
   payload: number;
 }
 interface productAddedToBagAction {
-  type: clothesActionTypes.PRODUCT_ADDED_TO_BAG;
+  type: IClothesAction.PRODUCT_ADDED_TO_BAG;
   payload: number;
 }
 interface productRemovedFromBagAction {
-  type: clothesActionTypes.PRODUCT_REMOVED_FROM_BAG;
+  type: IClothesAction.PRODUCT_REMOVED_FROM_BAG;
   payload: number;
 }
 interface productAllRemovedFromBagAction {
-  type: clothesActionTypes.PRODUCT_ALL_REMOVED_FROM_BAG;
+  type: IClothesAction.PRODUCT_ALL_REMOVED_FROM_BAG;
   payload: number;
 }
 interface searchClothesAction {
-  type: clothesActionTypes.SEARCH_CLOTHES;
+  type: IClothesAction.SEARCH_CLOTHES;
   value: string;
 }
 interface onFilterClothesAction {
-  type: clothesActionTypes.ON_FILTER_CLOTHES;
+  type: IClothesAction.ON_FILTER_CLOTHES;
   clothName: string;
 }
 interface onFilterSizeAction {
-  type: clothesActionTypes.ON_FILTER_SIZE;
+  type: IClothesAction.ON_FILTER_SIZE;
   sizeName: string;
 }
 interface onFilterPriceAction {
-  type: clothesActionTypes.ON_FILTER_PRICE;
+  type: IClothesAction.ON_FILTER_PRICE;
   priceName: string;
 }
 interface onFilterFabricAction {
-  type: clothesActionTypes.ON_FILTER_FABRIC;
+  type: IClothesAction.ON_FILTER_FABRIC;
   fabricName: string;
 }
-export type clothesAction =
+export type ClothesAction =
   | clothesRequestedAction
   | clothesLoadedAction
   | clothesErrorAction

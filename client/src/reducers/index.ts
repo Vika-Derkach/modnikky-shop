@@ -1,4 +1,4 @@
-import { clothesAction, clothesActionTypes } from "../types/actionsTypes";
+import { ClothesAction, IClothesAction } from "../types/actionsTypes";
 import {
   applicationStateTypes,
   bagProductItemTypes,
@@ -215,12 +215,12 @@ const scrollToTop = (): void => {
 };
 const reducer = (
   state = initialState,
-  action: clothesAction
+  action: ClothesAction
 ): applicationStateTypes => {
   console.log(action.type);
 
   switch (action.type) {
-    case clothesActionTypes.FETCH_CLOTHES_REQUEST:
+    case IClothesAction.FETCH_CLOTHES_REQUEST:
       return {
         ...state,
         clothes: [],
@@ -228,7 +228,7 @@ const reducer = (
         loading: true,
         error: null,
       };
-    case clothesActionTypes.FETCH_CLOTHES_SUCCESS:
+    case IClothesAction.FETCH_CLOTHES_SUCCESS:
       return {
         ...state,
         clothes: action.payload,
@@ -236,14 +236,14 @@ const reducer = (
         loading: false,
         error: null,
       };
-    case clothesActionTypes.FETCH_CLOTHES_FAILURE:
+    case IClothesAction.FETCH_CLOTHES_FAILURE:
       return {
         ...state,
         clothes: [],
         loading: false,
         error: action.payload,
       };
-    case clothesActionTypes.ON_ITEM_SELECTED:
+    case IClothesAction.ON_ITEM_SELECTED:
       scrollToTop();
       const clothId = action.payload;
       const cloth = state.clothesFromDb.find(
@@ -277,19 +277,19 @@ const reducer = (
         lookPicture: newLookPicture.frontPicture,
         lookPictureSecond: newLookPictureSecond.frontPicture,
       };
-    case clothesActionTypes.PRODUCT_ADDED_TO_BAG:
+    case IClothesAction.PRODUCT_ADDED_TO_BAG:
       return updateOrder(state, action.payload, 1);
 
-    case clothesActionTypes.PRODUCT_ALL_REMOVED_FROM_BAG:
+    case IClothesAction.PRODUCT_ALL_REMOVED_FROM_BAG:
       const removedItem = state.bagItems.find(
         ({ id }): boolean => id === action.payload
       );
       return updateOrder(state, action.payload, -removedItem.count);
 
-    case clothesActionTypes.PRODUCT_REMOVED_FROM_BAG:
+    case IClothesAction.PRODUCT_REMOVED_FROM_BAG:
       return updateOrder(state, action.payload, -1);
 
-    case clothesActionTypes.SEARCH_CLOTHES:
+    case IClothesAction.SEARCH_CLOTHES:
       ///search fillter
       scrollToTop();
       const { value = "" } = action;
@@ -322,7 +322,7 @@ const reducer = (
         clothes: visibleClothes,
         searchClothesValue: value,
       };
-    case clothesActionTypes.ON_FILTER_CLOTHES:
+    case IClothesAction.ON_FILTER_CLOTHES:
       scrollToTop();
       const { clothName = "" } = action;
 
@@ -332,7 +332,7 @@ const reducer = (
         clothes: filteredClothes,
         filterClothes: clothName,
       };
-    case clothesActionTypes.ON_FILTER_SIZE:
+    case IClothesAction.ON_FILTER_SIZE:
       scrollToTop();
       const { sizeName = "" } = action;
 
@@ -348,7 +348,7 @@ const reducer = (
     default:
       return state;
 
-    case clothesActionTypes.ON_FILTER_PRICE:
+    case IClothesAction.ON_FILTER_PRICE:
       scrollToTop();
       const { priceName = "" } = action;
 
@@ -364,7 +364,7 @@ const reducer = (
         clothes: filteredPriced,
         filterPrice: priceName,
       };
-    case clothesActionTypes.ON_FILTER_FABRIC:
+    case IClothesAction.ON_FILTER_FABRIC:
       scrollToTop();
       const { fabricName = "" } = action;
 
