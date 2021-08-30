@@ -14,7 +14,7 @@ interface BagsItemProps {
 const BagItem: React.FC<BagsItemProps>  = ({ product, onDelete, onDecrease, onIncrease }) => {
   const { frontPicture, title, price, color, count, size } = product;
   return (
-    <div className="bag-item">
+    <div className="bag-item" data-testid="bag-item" >
       <div className="bag-item_picture">
         <img src={frontPicture} alt="" />
       </div>

@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1 1`] = `
+<div
+  className="bag-item"
+  data-testid="bag-item"
+>
+  <div
+    className="bag-item_picture"
+  >
+    <img
+      alt=""
+      src="https://assets.burberry.com/is/image/Burberryltd/EDC85896-F540-490D-B9A4-5ADF6A0EED21.jpg?$BBY_V2_ML_1x1$&wid=2500&hei=2500"
+    />
+  </div>
+  <div
+    className="bag-item_descr"
+  >
+    <div
+      className="bag-item_descr__title"
+    >
+      Coat
+    </div>
+    <div
+      className="bag-item_descr__price"
+    >
+      USD $
+      43
+    </div>
+    <div
+      className="bag-item_descr__selector"
+    >
+      COLOR: 
+      GREY
+    </div>
+    <div
+      className="bag-item_descr__selector"
+    >
+      SIZE: 
+      L
+       
+    </div>
+     
+    <div
+      className="bag-item_descr__selector"
+    >
+      QUANTITY:
+       
+      <button
+        className="button-update button-quantity"
+      >
+        <i
+          aria-hidden="true"
+          className="fa fa-minus"
+        />
+      </button>
+      <span
+        className="quantity-number"
+      >
+        1
+      </span>
+      <button
+        className="button-update button-quantity"
+      >
+        <i
+          aria-hidden="true"
+          className="fa fa-plus"
+        />
+      </button>
+    </div>
+  </div>
+  <button
+    className="button-update"
+  >
+    <i
+      aria-hidden="true"
+      className="fa fa-times"
+    />
+  </button>
+</div>
+`;
+
+exports[`matches snapshot 2 1`] = `
+<div
+  className="bag-item"
+  data-testid="bag-item"
+>
+  <div
+    className="bag-item_picture"
+  >
+    <img
+      alt=""
+      src="https://www.politix.com.au/dw/image/v2/ABBA_PRD/on/demandware.static/-/Sites-politix-master-catalog/default/dw68075a91/images/hires/Winter%2021/A3/ac07-black-1.jpg?sw=2000&sh=2000&sm=fit"
+    />
+  </div>
+  <div
+    className="bag-item_descr"
+  >
+    <div
+      className="bag-item_descr__title"
+    >
+      Coat
+    </div>
+    <div
+      className="bag-item_descr__price"
+    >
+      USD $
+      43
+    </div>
+    <div
+      className="bag-item_descr__selector"
+    >
+      COLOR: 
+      Blue
+    </div>
+    <div
+      className="bag-item_descr__selector"
+    >
+      SIZE: 
+      M
+       
+    </div>
+     
+    <div
+      className="bag-item_descr__selector"
+    >
+      QUANTITY:
+       
+      <button
+        className="button-update button-quantity"
+      >
+        <i
+          aria-hidden="true"
+          className="fa fa-minus"
+        />
+      </button>
+      <span
+        className="quantity-number"
+      >
+        1
+      </span>
+      <button
+        className="button-update button-quantity"
+      >
+        <i
+          aria-hidden="true"
+          className="fa fa-plus"
+        />
+      </button>
+    </div>
+  </div>
+  <button
+    className="button-update"
+  >
+    <i
+      aria-hidden="true"
+      className="fa fa-times"
+    />
+  </button>
+</div>
+`;
