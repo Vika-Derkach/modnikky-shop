@@ -4,6 +4,7 @@ export default class ModnikkyService extends Service {
   // _imageBase = "https://starwars-visualguide.com/assets/img";
 
   getClothes = async () => {
+    console.log("here");
     const res = await this.getResourse(`/clothes/`);
 
     return res.map(this._transformCloses);

@@ -72,16 +72,19 @@ const onFilterFabric = (fabricName) => {
     fabricName,
   };
 };
-const fetchClothes = (modnikkyService, dispatch) => async () => {
-  dispatch(clothesRequested());
-  modnikkyService
-    .getClothes()
-    .then((data) => dispatch(clothesLoaded(data)))
-    .catch((err) => dispatch(clothesError(err)));
-};
+// const fetchClothes = (modnikkyService, dispatch) => async () => {
+//   dispatch(clothesRequested());
+//   modnikkyService
+//     .getClothes()
+//     .then((data) => dispatch(clothesLoaded(data)))
+//     .catch((err) => dispatch(clothesError(err)));
+// };
 
 export {
-  fetchClothes,
+  clothesRequested,
+  clothesLoaded,
+  clothesError,
+  // fetchClothes,
   onItemSelected,
   productAddedToBag,
   productRemovedFromBag,

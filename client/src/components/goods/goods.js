@@ -1,23 +1,28 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { fetchClothes, onItemSelected, searchClothes } from "../../actions";
+import { connect, useDispatch, useSelector } from "react-redux";
+import { onItemSelected, searchClothes } from "../../actions";
 import ErrorIndicator from "../error-indicator";
 import GoodsItem from "../goods-item";
 import { withModnikkyService } from "../hoc";
 import Spinner from "../spinner";
 import "./goods.css";
-const Goods = ({ clothes, loading, error, onItemSelected, fetchClothes }) => {
+const Goods = ({ onItemSelected, fetchClothes }) => {
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+  console.log(state);
   useEffect(() => {
-    fetchClothes();
+    dispatch({
+      type: "FETCH_CLOTHES_REQUEST",
+    });
   }, []);
-
+  const { clothes, loading, error } = state;
   if (loading) {
     return <Spinner />;
   }
   if (error) {
     return <ErrorIndicator />;
   }
-
+  console.log("clothes", clothes);
   return (
     <div>
       <div className="goods-item-container">
@@ -41,7 +46,7 @@ const mapStateToProps = ({ clothes, loading, error }) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   const { modnikkyService } = ownProps;
   return {
-    fetchClothes: fetchClothes(modnikkyService, dispatch),
+    // fetchClothes: fetchClothes(modnikkyService, dispatch),
     onItemSelected: (id) => dispatch(onItemSelected(id)),
     ///search fillter
     searchClothes: searchClothes,
